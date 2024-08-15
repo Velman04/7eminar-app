@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Override;
 
 class DomainServiceProvider extends ServiceProvider
 {
+    #[Override]
     public function register(): void
     {
         $this->domainRegistrars();

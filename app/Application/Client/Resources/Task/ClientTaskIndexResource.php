@@ -7,6 +7,7 @@ namespace App\Application\Client\Resources\Task;
 use App\Domain\Task\Models\Task;
 use App\Infrastructure\Resources\JsonResourceWithoutWrapper;
 use Illuminate\Http\Request;
+use Override;
 
 class ClientTaskIndexResource extends JsonResourceWithoutWrapper
 {
@@ -15,6 +16,7 @@ class ClientTaskIndexResource extends JsonResourceWithoutWrapper
      *
      * @return array<string, mixed>
      */
+    #[Override]
     public function toArray(Request $request): array
     {
         /** @var Task $task */

@@ -6,9 +6,11 @@ namespace App\Infrastructure\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as RouteServiceProviderAlias;
 use Illuminate\Support\Facades\Route;
+use Override;
 
 class RouteServiceProvider extends RouteServiceProviderAlias
 {
+    #[Override]
     public function boot(): void
     {
         $this->routes(function () {

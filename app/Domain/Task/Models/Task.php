@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Kalnoy\Nestedset\NodeTrait;
+use Override;
 
 class Task extends Model
 {
@@ -33,6 +34,7 @@ class Task extends Model
         'status' => TaskStatusEnum::OPEN,
     ];
 
+    #[Override]
     protected function casts(): array
     {
         return [

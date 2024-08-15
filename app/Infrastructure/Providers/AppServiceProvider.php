@@ -7,10 +7,12 @@ namespace App\Infrastructure\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\PersonalAccessToken;
 use Laravel\Sanctum\Sanctum;
+use Override;
 
 class AppServiceProvider extends ServiceProvider
 {
     /** Register any application services. */
+    #[Override]
     public function register(): void
     {
 

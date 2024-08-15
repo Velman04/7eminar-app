@@ -6,6 +6,7 @@ namespace App\Application\Client\Resources\Task;
 
 use App\Domain\Task\Models\Task;
 use Illuminate\Http\Request;
+use Override;
 
 class ClientTaskShowResource extends ClientTaskIndexResource
 {
@@ -14,6 +15,7 @@ class ClientTaskShowResource extends ClientTaskIndexResource
      *
      * @return array<string, mixed>
      */
+    #[Override]
     public function toArray(Request $request): array
     {
         /** @var Task $task */

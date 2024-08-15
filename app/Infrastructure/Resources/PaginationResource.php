@@ -7,11 +7,13 @@ namespace App\Infrastructure\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Override;
 
 //use Illuminate\Pagination\UrlWindow;
 
 class PaginationResource extends JsonResource
 {
+    #[Override]
     public function toArray(Request $request): array
     {
         /** @var LengthAwarePaginator $paginate */
