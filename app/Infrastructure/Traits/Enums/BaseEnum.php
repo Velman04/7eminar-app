@@ -13,7 +13,7 @@ trait BaseEnum
         }, array_keys(self::options()), self::options());
     }
 
-    public static function array(): array
+    public static function values(): array
     {
         return array_column(self::cases(), 'value');
     }
