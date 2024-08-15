@@ -6,6 +6,9 @@ namespace App\Domain\Task\Models;
 
 use App\Domain\Task\Enums\TaskStatusEnum;
 use App\Domain\User\Models\User;
+use Database\Factories\TaskFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Kalnoy\Nestedset\NodeTrait;
@@ -13,6 +16,7 @@ use Kalnoy\Nestedset\NodeTrait;
 class Task extends Model
 {
     use NodeTrait;
+    use HasFactory;
 
     protected $table = 'tasks';
 
@@ -34,6 +38,11 @@ class Task extends Model
         return [
             'status' => TaskStatusEnum::class,
         ];
+    }
+
+    protected static function newFactory(): TaskFactory|Factory
+    {
+        return TaskFactory::new();
     }
 
     public function user(): BelongsTo

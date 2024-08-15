@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Domain\Task\Models\Task;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -16,9 +17,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $tasks = Task::factory()->count(50)->create([
+            'user_id' => $user->id,
+        ]);
+
+        $tasks->each(function (Task $task) use ($user) {
+            if (rand(0, 1)) {
+                Task::factory()->count(rand(1, 3))->withParent($task)->create([
+                    'user_id' => $user->id,
+                ]);
+            }
+        });
     }
 }
