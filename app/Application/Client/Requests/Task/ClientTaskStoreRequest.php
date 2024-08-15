@@ -26,10 +26,10 @@ class ClientTaskStoreRequest extends FormRequest
     {
         return new ClientTaskStoreData(
             userId: $this->user()->getAuthIdentifier(),
-            parentId: $this->input('parent_id'),
+            parentId: $this->integer('parent_id'),
             title: $this->input('title'),
             description: $this->input('description'),
-            status: $this->input('status'),
+            status: $this->integer('status'),
         );
     }
 }

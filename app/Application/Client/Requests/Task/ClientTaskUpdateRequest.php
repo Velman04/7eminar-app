@@ -27,10 +27,10 @@ class ClientTaskUpdateRequest extends FormRequest
         return new ClientTaskUpdateData(
             taskId: (int) $this->route('taskId', 0),
             userId: $this->user()->getAuthIdentifier(),
-            parentId: $this->input('parent_id'),
+            parentId: $this->integer('parent_id'),
             title: $this->input('title'),
             description: $this->input('description'),
-            status: $this->input('status'),
+            status: $this->integer('status'),
         );
     }
 }
