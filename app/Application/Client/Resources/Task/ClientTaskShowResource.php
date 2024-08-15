@@ -35,6 +35,7 @@ class ClientTaskShowResource extends ClientTaskIndexResource
                 'label' => $task->status->label(),
             ],
             'children' => ClientTaskIndexResource::collection($task->children),
+            'createdAt' => $task->created_at,
         ];
     }
 }

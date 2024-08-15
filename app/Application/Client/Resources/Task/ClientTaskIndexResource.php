@@ -35,6 +35,7 @@ class ClientTaskIndexResource extends JsonResourceWithoutWrapper
                 'name' => $task->status->name,
                 'label' => $task->status->label(),
             ],
+            'createdAt' => $task->created_at,
         ];
     }
 }

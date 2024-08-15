@@ -18,7 +18,7 @@ class ClientTaskRepository implements ClientTaskRepositoryInterface
             ->where('user_id', $userId)
             ->whereIsRoot()
             ->with('user:id,name')
-            ->get(['id', 'user_id', 'parent_id', 'title', 'description', 'status']);
+            ->get(['id', 'user_id', 'parent_id', 'title', 'description', 'status', 'created_at']);
     }
 
     #[Override]
@@ -28,10 +28,10 @@ class ClientTaskRepository implements ClientTaskRepositoryInterface
             ->where('user_id', $userId)
             ->whereIsRoot()->with([
                 'user:id,name',
-                'children' => fn ($query) => $query->select(
-                    ['id', 'user_id', 'parent_id', 'title', 'description', 'status']
-                )->with('user:id,name'),
+                'children' => fn ($query) => $query->select([
+                    'id', 'user_id', 'parent_id', 'title', 'description', 'status', 'created_at',
+                ])->with('user:id,name'),
             ])
-            ->findOrFail($taskId, ['id', 'user_id', 'parent_id', 'title', 'description', 'status']);
+            ->findOrFail($taskId, ['id', 'user_id', 'parent_id', 'title', 'description', 'status', 'created_at']);
     }
 }
