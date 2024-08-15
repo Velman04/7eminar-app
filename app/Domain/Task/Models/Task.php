@@ -8,14 +8,18 @@ use App\Domain\Task\Enums\TaskStatusEnum;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Task extends Model
 {
+    use NodeTrait;
+
     protected $table = 'tasks';
 
     protected $fillable = [
         'id',
         'user_id',
+        'parent_id',
         'title',
         'description',
         'status',

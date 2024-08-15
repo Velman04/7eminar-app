@@ -20,9 +20,9 @@ return new class () extends Migration {
             $table->string('title');
             $table->text('description')->nullable();
             $table->unsignedInteger('status');
+            $table->nestedSet();
             $table->datetimes();
         });
-
     }
 
     /** Reverse the migrations. */
