@@ -8,6 +8,7 @@ use App\Domain\Task\Enums\TaskStatusEnum;
 use App\Domain\Task\Models\Task;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Override;
 
 /**
  * @extends Factory<Task>
@@ -21,6 +22,7 @@ class TaskFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    #[Override]
     public function definition(): array
     {
         return [
