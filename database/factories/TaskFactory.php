@@ -29,7 +29,7 @@ class TaskFactory extends Factory
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'status' => $this->faker->randomElement([TaskStatusEnum::values()]),
+            'status' => $this->faker->randomElement(TaskStatusEnum::values()),
         ];
     }
 
