@@ -26,7 +26,8 @@ class ClientTaskRepository implements ClientTaskRepositoryInterface
     {
         return Task::query()
             ->where('user_id', $userId)
-            ->whereIsRoot()->with([
+            ->whereIsRoot()
+            ->with([
                 'user:id,name',
                 'children' => fn ($query) => $query->select([
                     'id', 'user_id', 'parent_id', 'title', 'description', 'status', 'created_at',
