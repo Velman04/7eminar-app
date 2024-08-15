@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Application\Client\Controllers\Status;
 
 use App\Infrastructure\Controllers\Controller;
