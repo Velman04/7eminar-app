@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Domain\Order\Models\Order;
+use App\Domain\Product\Models\Product;
 use App\Domain\Task\Models\Task;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
@@ -33,5 +35,8 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         });
+
+        Product::factory()->count(50)->create();
+        Order::factory()->count(100)->withProducts(5)->create(['user_id' => $user->id]);
     }
 }
