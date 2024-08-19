@@ -12,3 +12,6 @@ Route::prefix('tasks')->group(base_path('routes/client/tasks.php'));
 
 /** Orders */
 Route::prefix('orders')->group(base_path('routes/client/orders.php'));
+
+/** Products */
+Route::prefix('products')->group(base_path('routes/client/products.php'));

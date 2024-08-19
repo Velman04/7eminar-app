@@ -7,10 +7,11 @@ namespace App\Domain\Order\Services;
 use App\Domain\Order\Contracts\Services\OrderCostCalculatorServiceInterface;
 use App\Domain\Order\Models\Order;
 use Closure;
+use Override;
 
 class OrderCostCalculatorService implements OrderCostCalculatorServiceInterface
 {
-    #[\Override]
+    #[Override]
     public function calculate(Order $order): Closure|int|null
     {
         return $order->products

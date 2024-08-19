@@ -10,6 +10,7 @@ use App\Domain\Order\Contracts\Services\OrderCostCalculatorServiceInterface;
 use App\Domain\Order\Models\Order;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator as LengthAwarePaginatorContract;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Override;
 
 readonly class ClientOrderService implements ClientOrderServiceInterface
 {
@@ -20,7 +21,7 @@ readonly class ClientOrderService implements ClientOrderServiceInterface
 
     }
 
-    #[\Override]
+    #[Override]
     public function getLastOrdersWithCost(
         int $userId,
         int $subDays = 30,

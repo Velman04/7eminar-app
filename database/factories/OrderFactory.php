@@ -22,7 +22,7 @@ class OrderFactory extends Factory
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function configure(): static
     {
         return $this->afterCreating(function (Order $order) {

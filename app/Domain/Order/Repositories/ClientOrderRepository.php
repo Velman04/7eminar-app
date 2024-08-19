@@ -9,10 +9,11 @@ use App\Domain\Order\Models\Order;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator as LengthAwarePaginatorContract;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
+use Override;
 
 class ClientOrderRepository implements ClientOrderRepositoryInterface
 {
-    #[\Override]
+    #[Override]
     public function getLastOrdersByUserId(
         int $userId,
         int $subDays = 30,
